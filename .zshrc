@@ -8,7 +8,7 @@ alias cppch="cppcheck --enable=all --suppress=missingIncludeSystem *.c *.h"
 alias cmt="git commit -m"
 alias push="git push origin develop"
 alias weak="leaks -atExit --"
-TAG=1.4.0
+TAG=1.0.1
 
 if [ "$(uname)" == "Darwin" ] ; then
     alias vsc="open . -a 'Visual studio code'"
@@ -58,7 +58,11 @@ function comp() {
 }
 
 function NR() {
-	cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc
+if [ "$(uname)" == "Darwin" ] ; then
+    cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc
+elif [ "$(uname)" == "Linux" ] ; then
+    curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc
+fi
 	restart
 }
 
@@ -67,8 +71,13 @@ function init_setup() {
 	then
 		mkdir ~/.school_resources_for_peer
 	fi
-	cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README.md > ~/.school_resources_for_peer/README.md
-	cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
+	if [ "$(uname)" == "Darwin" ] ; then
+        cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README.md > ~/.school_resources_for_peer/README.md
+        cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
+    elif [ "$(uname)" == "Linux" ] ; then
+        curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README.md > ~/.school_resources_for_peer/README.md
+        curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
+    fi
 }
 
 function clangch() {
