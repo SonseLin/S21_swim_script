@@ -10,3 +10,4 @@ info_ext - extended view with userdata
 restart - restart terminal if something unexpected happened
 
 comp - accept *.c file and compiles it with all flags checked & running at the same time
+
