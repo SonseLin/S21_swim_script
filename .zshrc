@@ -111,5 +111,5 @@ function review() {
 }
 
 function mans21() {
-	cat ~/.school_resources_for_peer/README.md
+	cat ~/.school_resources_for_peer/README_TERM.md
 }
