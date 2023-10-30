@@ -89,8 +89,7 @@ function init_setup() {
         echo -e "${GIT_COLOR}Download CLANG${COLOR_DEF}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
     fi
-    echo -e ${GIT_COLOR}mans21 - command to print script documentation${COLOR_DEF}"
-    echo
+    echo -e "${GIT_COLOR}mans21 - command to print script documentation${COLOR_DEF}"
 }
 
 function clangch() {
