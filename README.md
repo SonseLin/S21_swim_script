@@ -18,3 +18,6 @@ comp     - accept *.c file and compiles it with all flags checked & running at t
 **Example of terminal view with extended view for userdata**
 
 ![terminal_screen](scr1.png)
+
+**To delete use following command**
+rm ~/.zshrc
