@@ -39,7 +39,7 @@ elif [ "$(uname)" == "Linux" ] ; then
     S21_DIRECTORY="${DIRECTORY_COLOR}\w${COLOR_DEF}"
 
     INFO_BASED="${S21_BRANCH}${S21_DIRECTORY}\n$ "
-    INFO_EXTENDED="User: ${S21_USER} Place: ${S21_PLACE} Day: ${S21_DATE} Processes: ${S21_PROCESSES}\n${S21_BRANCH}${S21_DIRECTORY}\n$ "
+    INFO_EXTENDED="User: ${S21_USER} Place: ${S21_PLACE} Day: ${S21_DATE} High load: ${S21_PROCESSES}\n${S21_BRANCH}${S21_DIRECTORY}\n$ "
 
     export PS1=${INFO_EXTENDED}
 
