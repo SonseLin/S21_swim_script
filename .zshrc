@@ -60,8 +60,10 @@ function comp() {
 function NR() {
 if [ "$(uname)" == "Darwin" ] ; then
     cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc
+    cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README.md > ~/.school_resources_for_peer/README.md
 elif [ "$(uname)" == "Linux" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc
+    curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README.md > ~/.school_resources_for_peer/README.md
 fi
 	restart
 	GIT_COLOR='\033[91m'
