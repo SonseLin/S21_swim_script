@@ -11,3 +11,6 @@ restart  - restart terminal if something unexpected happened
 
 comp     - accept *.c file and compiles it with all flags checked & running at the same time
 
+**Example of terminal view with extended view for userdata**
+
+![terminal_screen](scr1.png)
