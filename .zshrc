@@ -64,6 +64,9 @@ elif [ "$(uname)" == "Linux" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc
 fi
 	restart
+	GIT_COLOR='\033[91m'
+	COLOR_DEF='\033[00m'
+	echo -e "${GIT_COLOR}Terminal has been updated${COLOR_DEF}"
 }
 
 function init_setup() {
@@ -71,13 +74,20 @@ function init_setup() {
 	then
 		mkdir ~/.school_resources_for_peer
 	fi
+	GIT_COLOR='\033[91m'
+	COLOR_DEF='\033[00m'
 	if [ "$(uname)" == "Darwin" ] ; then
+        echo -e "${GIT_COLOR}Download README${COLOR_DEF}"
         cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README.md > ~/.school_resources_for_peer/README.md
+        echo -e "${GIT_COLOR}Download CLANG${COLOR_DEF}"
         cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
     elif [ "$(uname)" == "Linux" ] ; then
+        echo -e "${GIT_COLOR}Download README${COLOR_DEF}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README.md > ~/.school_resources_for_peer/README.md
+        echo -e "${GIT_COLOR}Download CLANG${COLOR_DEF}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
     fi
+    echo
 }
 
 function clangch() {
