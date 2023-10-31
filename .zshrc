@@ -19,6 +19,7 @@ if [ ! -f "$COLOR_PATH" ] ; then
     CONTENT_COLOR_PRE=green
     CONTENT_COLOR="\033[96m\]"
     PATH_COLOR_PRE=yellow
+    PATH_COLOR="\033[93m\]"
     DEFAULT_COLOR="\033[00m\]"
 else
     GIT_COLOR_PRE="$(grep git ~/.school_resources_for_peer/.script_config/.color_config  | awk '{print $2}')"
