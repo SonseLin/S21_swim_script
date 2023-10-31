@@ -75,7 +75,7 @@ elif [ "$(uname)" == "Linux" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.bashrc
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
 fi
-if ! [ -f "~/.school_resources_for_peer/.script/.color_config" ] ; then
+if [ ! -f ~/.school_resources_for_peer/.script/.color_config ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
 fi
 	restart
