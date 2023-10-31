@@ -13,13 +13,24 @@ TAG=1.1.0
 COLOR_PATH=~/.school_resources_for_peer/.script_config/.color_config
 
 # Colors
-GIT_COLOR_PRE="$(grep git ~/.school_resources_for_peer/.script_config/.color_config  | awk '{print $2}')"
-GIT_COLOR="$(grep $GIT_COLOR_PRE ~/.school_resources_for_peer/.script_config/.color_config  | head -n 1 | awk '{print $2}')"
-CONTENT_COLOR_PRE="$(grep cnt ~/.school_resources_for_peer/.script_config/.color_config  | awk '{print $2}')"
-CONTENT_COLOR="$(grep $CONTENT_COLOR_PRE ~/.school_resources_for_peer/.script_config/.color_config  | head -n 1 | awk '{print $2}')"
-PATH_COLOR_PRE="$(grep path ~/.school_resources_for_peer/.script_config/.color_config  | awk '{print $2}')"
-PATH_COLOR="$(grep $PATH_COLOR_PRE ~/.school_resources_for_peer/.script_config/.color_config | head -n 1 | awk '{print $2}')"
-DEFAULT_COLOR="$(grep def ~/.school_resources_for_peer/.script_config/.color_config | head -n 1 | awk '{print $2}')"
+if [ ! -f "$COLOR_PATH" ] ; then
+    GIT_COLOR_PRE=blue
+    GIT_COLOR="\033[0;34m"
+    CONTENT_COLOR_PRE=green
+    CONTENT_COLOR="\033[96m\]"
+    PATH_COLOR_PRE=yellow
+    PATH_COLOR="\033[93m\]"
+    DEFAULT_COLOR="\033[00m\]"
+else
+    GIT_COLOR_PRE="$(grep git ~/.school_resources_for_peer/.script_config/.color_config  | awk '{print $2}')"
+    GIT_COLOR="$(grep $GIT_COLOR_PRE ~/.school_resources_for_peer/.script_config/.color_config  | head -n 1 | awk '{print $2}')"
+    CONTENT_COLOR_PRE="$(grep cnt ~/.school_resources_for_peer/.script_config/.color_config  | awk '{print $2}')"
+    CONTENT_COLOR="$(grep $CONTENT_COLOR_PRE ~/.school_resources_for_peer/.script_config/.color_config  | head -n 1 | awk '{print $2}')"
+    PATH_COLOR_PRE="$(grep path ~/.school_resources_for_peer/.script_config/.color_config  | awk '{print $2}')"
+    PATH_COLOR="$(grep $PATH_COLOR_PRE ~/.school_resources_for_peer/.script_config/.color_config | head -n 1 | awk '{print $2}')"
+    DEFAULT_COLOR="$(grep def ~/.school_resources_for_peer/.script_config/.color_config | head -n 1 | awk '{print $2}')"
+fi
+
 
 if [ "$(uname)" == "Darwin" ] ; then
     alias vsc="open . -a 'Visual studio code'"
@@ -71,13 +82,14 @@ function NR() {
 if [ "$(uname)" == "Darwin" ] ; then
     cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc
     cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
-    cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
 elif [ "$(uname)" == "Linux" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.bashrc
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
+fi
+if [ ! -f "$COLOR_PATH" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
 fi
-    restart
+	restart
 	echo -e "${GIT_COLOR}Terminal has been updated${DEFAULT_COLOR}"
 }
 
@@ -91,11 +103,18 @@ function init_setup() {
         cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
         echo -e "${GIT_COLOR}Download CLANG${DEFAULT_COLOR}"
         cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
+        echo -e "${GIT_COLOR}Download COLORS${DEFAULT_COLOR}"
+        cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
     elif [ "$(uname)" == "Linux" ] ; then
         echo -e "${GIT_COLOR}Download README${DEFAULT_COLOR}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
         echo -e "${GIT_COLOR}Download CLANG${DEFAULT_COLOR}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
+        echo -e "${GIT_COLOR}Download COLORS${DEFAULT_COLOR}"
+        if [ ! -d "~/.school_resources_for_peer/.script_config" ]; then
+            mkdir ~/.school_resources_for_peer/.script_config
+        fi
+        curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
     fi
     echo -e "${GIT_COLOR}mans21 - command to print script documentation${DEFAULT_COLOR}"
 }
