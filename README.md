@@ -3,7 +3,7 @@ Personal script for peers at School 21 for *unix systems (Linux / MacOS)
 
 **Write to install the command below**
 
-***curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc ; source ~/.zshrc ; init_setup***
+***curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.bashrc ; source ~/.bashrc ; init_setup***
 
 NR       - get the last stable release
 
