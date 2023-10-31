@@ -71,14 +71,13 @@ function NR() {
 if [ "$(uname)" == "Darwin" ] ; then
     cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.zshrc
     cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
+    cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
 elif [ "$(uname)" == "Linux" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.bashrc
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
-fi
-if [ ! -f "$COLOR_PATH" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
 fi
-	restart
+    restart
 	echo -e "${GIT_COLOR}Terminal has been updated${DEFAULT_COLOR}"
 }
 
@@ -92,15 +91,11 @@ function init_setup() {
         cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
         echo -e "${GIT_COLOR}Download CLANG${DEFAULT_COLOR}"
         cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
-        echo -e "${GIT_COLOR}Download COLORS${DEFAULT_COLOR}"
-        cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
     elif [ "$(uname)" == "Linux" ] ; then
         echo -e "${GIT_COLOR}Download README${DEFAULT_COLOR}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
         echo -e "${GIT_COLOR}Download CLANG${DEFAULT_COLOR}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
-        echo -e "${GIT_COLOR}Download COLORS${DEFAULT_COLOR}"
-        curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
     fi
     echo -e "${GIT_COLOR}mans21 - command to print script documentation${DEFAULT_COLOR}"
 }
