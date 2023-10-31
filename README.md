@@ -5,17 +5,17 @@ Personal script for peers at School 21 for *unix systems (Linux / MacOS)
 
 ***curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.bashrc ; source ~/.bashrc ; init_setup***
 
-NR       - get the last stable release
+**NR**       - get the last stable release
 
-info_bas - simple view contents branch name and directory
+**info_bas** - simple view contents branch name and directory
 
-info_ext - extended view with userdata
+**info_ext** - extended view with userdata
 
-restart  - restart terminal if something unexpected happened
+**restart**  - restart terminal if something unexpected happened
 
-comp     - accept *.c file and compiles it with all flags checked & running at the same time
+**comp**     - accept *.c file and compiles it with all flags checked & running at the same time
 
-set_color - Меняет цвет вывода. Доступные опции git(меняет цвет ветки), cnt(меняет цвет информации о пользователе) и path(меняет цвет директории).
+**set_color** - Меняет цвет вывода. Доступные опции git(меняет цвет ветки), cnt(меняет цвет информации о пользователе) и path(меняет цвет директории).
 Доступные опции цвета на выбор: blue, red, green, yellow, purple, cyan
 
 **Example of terminal view with extended view for userdata**
