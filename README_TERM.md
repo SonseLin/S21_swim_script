@@ -11,5 +11,5 @@ restart   - restart terminal if something unexpected happened
 
 comp      - accept *.c file and compiles it with all flags checked & running at the same time
 
-set_color - Меняет цвет вывода. Доступные опции git(меняет цвет ветки), cnt(меняет цвет информации о пользователе) и path(меняет цвет директории)
+set_color - Меняет цвет вывода. Доступные опции git(меняет цвет ветки), cnt(меняет цвет информации о пользователе) и path(меняет цвет директории).
 Доступные опции цвета на выбор: blue, red, green, yellow, purple, cyan
