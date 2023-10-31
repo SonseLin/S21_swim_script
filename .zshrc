@@ -110,6 +110,9 @@ function init_setup() {
         echo -e "${GIT_COLOR}Download CLANG${DEFAULT_COLOR}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
         echo -e "${GIT_COLOR}Download COLORS${DEFAULT_COLOR}"
+        if [ ! -d "~/.school_resources_for_peer/.script_config" ]; then
+            mkdir ~/.school_resources_for_peer/.script_config
+        fi
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
     fi
     echo -e "${GIT_COLOR}mans21 - command to print script documentation${DEFAULT_COLOR}"
