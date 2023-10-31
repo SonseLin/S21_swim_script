@@ -10,7 +10,7 @@ alias weak="leaks -atExit --"
 TAG=1.1.0
 
 # Config files
-COLOR_PATH="~/.school_resources_for_peer/.script_config/.color_config"
+COLOR_PATH=~/.school_resources_for_peer/.script_config/.color_config
 
 # Colors
 GIT_COLOR_PRE="$(grep git ~/.school_resources_for_peer/.script_config/.color_config  | awk '{print $2}')"
@@ -75,7 +75,7 @@ elif [ "$(uname)" == "Linux" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.bashrc
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
 fi
-if [ ! -f ~/.school_resources_for_peer/.script/.color_config ] ; then
+if [ ! -f "$COLOR_PATH" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
 fi
 	restart
