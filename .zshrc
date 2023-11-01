@@ -11,6 +11,7 @@ TAG=1.1.1
 
 # Config files
 COLOR_PATH=~/.school_resources_for_peer/.script_config/.color_config
+CLANG_FORMAT=~/.school_resources_for_peer/.clang-format
 
 # Colors
 if [ ! -f "$COLOR_PATH" ] ; then
@@ -85,19 +86,22 @@ if [ "$(uname)" == "Darwin" ] ; then
 elif [ "$(uname)" == "Linux" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.zshrc > ~/.bashrc
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
-fi
-if [ ! -f "$COLOR_PATH" ] ; then
     curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
+fi
+if [ ! -f "$CLANG_FORMAT" ] ; then
+    curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
 fi
 	restart
 	echo -e "${GIT_COLOR}Terminal has been updated${DEFAULT_COLOR}"
 }
 
 function init_setup() {
-	if [ ! -d "~/.school_resources_for_peer" ]
-	then
+	if [ ! -d "~/.school_resources_for_peer" ] ; then
 		mkdir ~/.school_resources_for_peer
 	fi
+	if [ ! -d "~/.school_resources_for_peer/.script_config" ]; then
+            mkdir ~/.school_resources_for_peer/.script_config
+    fi
 	if [ "$(uname)" == "Darwin" ] ; then
         echo -e "${GIT_COLOR}Download README${DEFAULT_COLOR}"
         cURL -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/README_TERM.md > ~/.school_resources_for_peer/README.md
@@ -111,9 +115,6 @@ function init_setup() {
         echo -e "${GIT_COLOR}Download CLANG${DEFAULT_COLOR}"
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/.clang-format > ~/.school_resources_for_peer/.clang-format
         echo -e "${GIT_COLOR}Download COLORS${DEFAULT_COLOR}"
-        if [ ! -d "~/.school_resources_for_peer/.script_config" ]; then
-            mkdir ~/.school_resources_for_peer/.script_config
-        fi
         curl -l https://raw.githubusercontent.com/Sovsemo/S21_swim_script/main/cfg/COLOR_CONFIG > ~/.school_resources_for_peer/.script_config/.color_config
     fi
     echo -e "${GIT_COLOR}mans21 - command to print script documentation${DEFAULT_COLOR}"
