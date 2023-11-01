@@ -7,7 +7,7 @@ alias cppch="cppcheck --enable=all --suppress=missingIncludeSystem *.c *.h"
 alias cmt="git commit -m"
 alias push="git push origin develop"
 alias weak="leaks -atExit --"
-TAG=1.1.0
+TAG=1.1.1
 
 # Config files
 COLOR_PATH=~/.school_resources_for_peer/.script_config/.color_config
@@ -74,8 +74,8 @@ elif [ "$(uname)" == "Linux" ] ; then
 fi
 
 function comp() {
-	gcc -Wall -Wextra -Werror "$1.c" -o "$1.o"
-	./"$1.o"
+	gcc -Wall -Wextra -Werror "$1" -o "$1.out"
+	./"$1.out"
 }
 
 function NR() {
@@ -119,10 +119,15 @@ function init_setup() {
     echo -e "${GIT_COLOR}mans21 - command to print script documentation${DEFAULT_COLOR}"
 }
 
-function clangch() {
+function clang_check() {
+	cp ~/.school_resources_for_peer/.clang-format .clang-format
+	clang-format -n *.c *.h
+	rm .clang-format
+}
+
+function clang_fix() {
 	cp ~/.school_resources_for_peer/.clang-format .clang-format
 	clang-format -i *.c *.h
-	clang-format -n *.c *.h
 	rm .clang-format
 }
 
