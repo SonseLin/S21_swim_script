@@ -18,6 +18,10 @@ Personal script for peers at School 21 for *unix systems (Linux / MacOS)
 **set_color** - Меняет цвет вывода. Доступные опции git(меняет цвет ветки), cnt(меняет цвет информации о пользователе) и path(меняет цвет директории).
 Доступные опции цвета на выбор: blue, red, green, yellow, purple, cyan
 
+**clang_check** - проверяет .c файл на соответствие стилевым нормам школы
+
+**clang_fix**   - правит .c файл по стилевым нормам школы
+
 **Example of terminal view with extended view for userdata**
 
 ![terminal_screen](scr1.png)
