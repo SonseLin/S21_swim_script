@@ -7,7 +7,7 @@ alias cppch="cppcheck --enable=all --suppress=missingIncludeSystem *.c *.h"
 alias cmt="git commit -m"
 alias push="git push origin develop"
 alias weak="leaks -atExit --"
-TAG=1.1.1
+TAG=1.2.0
 
 # Config files
 COLOR_PATH=~/.school_resources_for_peer/.script_config/.color_config
